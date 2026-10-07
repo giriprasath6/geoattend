@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GeoAttend</title>
+<style>
+  * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+  body { margin: 0; background: #f5f7fb; color: #101828; padding: 20px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  h2 { margin: 0 0 16px; font-size: 16px; }
+  .sub { color: #667085; font-size: 14px; margin: 0 0 22px; }
+  .card { background: #fff; border-radius: 14px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(16,24,40,.06); }
+  label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 4px; color: #344054; }
+  input, select { width: 100%; padding: 10px 12px; border: 1px solid #e4e7ec; border-radius: 10px; font-size: 14px; }
+  input:focus, select:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
+  button { background: #4f46e5; color: #fff; border: none; padding: 11px 16px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 14px; }
+  button:hover:not(:disabled) { background: #4338ca; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  button.sm { width: auto; padding: 8px 14px; font-size: 13px; margin: 0 6px 0 0; }
+  button.ghost { background: #fff; color: #344054; border: 1px solid #e4e7ec; }
+  button.ghost:hover:not(:disabled) { background: #f9fafb; }
+  button.danger { background: #f04438; }
+  .tabs { display: flex; gap: 4px; background: #eef0f5; padding: 4px; border-radius: 11px; margin-bottom: 8px; }
+  .tabs button { flex: 1; background: transparent; color: #667085; margin: 0; }
+  .tabs button.active { background: #fff; color: #101828; box-shadow: 0 1px 3px rgba(16,24,40,.1); }
+  .row { display: flex; gap: 10px; margin-bottom: 4px; flex-wrap: wrap; }
+  .row > * { flex: 1; min-width: 140px; margin: 0; }
+  .item { border: 1px solid #e4e7ec; border-radius: 12px; padding: 14px; margin-bottom: 10px; }
+  .item h3 { margin: 0 0 6px; font-size: 15px; }
+  .meta { font-size: 13px; color: #667085; margin-bottom: 8px; }
+  .badge { display: inline-block; padding: 3px 9px; font-size: 12px; font-weight: 700; border-radius: 99px; background: #eef2ff; color: #4338ca; }
+  .badge.ok { background: #ecfdf3; color: #027a48; }
+  .badge.err { background: #fef3f2; color: #b42318; }
+  .badge.warn { background: #fffaeb; color: #b54708; }
+  .badge.gray { background: #f2f4f7; color: #475467; }
+  .hint { font-size: 12px; color: #667085; margin: 8px 0 0; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(150px); background: #101828; color: #fff; padding: 12px 20px; border-radius: 10px; transition: transform .3s; font-size: 14px; font-weight: 500; max-width: 90vw; z-index: 100; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.err { background: #f04438; }
+  .toast.ok { background: #027a48; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 6px; border-bottom: 1px solid #e4e7ec; }
+  th { font-size: 12px; color: #667085; text-transform: uppercase; }
+  .empty { text-align: center; padding: 30px 16px; color: #667085; font-size: 14px; }
+  .empty .big { font-size: 32px; display: block; margin-bottom: 8px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px,1fr)); gap: 10px; margin: 16px 0; }
+  .stat { background: #f9fafb; border: 1px solid #e4e7ec; border-radius: 11px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; line-height: 1.2; }
+  .stat span { font-size: 12px; color: #667085; text-transform: uppercase; }
+  .bar { height: 7px; border-radius: 999px; background: #eaecf0; overflow: hidden; margin: 10px 0; }
+  .bar > i { display: block; height: 100%; background: linear-gradient(90deg, #4f46e5, #8b5cf6); transition: width .3s; }
+  @media (max-width: 500px) { body { padding: 12px; } .card { padding: 16px; } }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
